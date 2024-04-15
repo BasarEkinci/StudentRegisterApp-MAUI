@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentApp.MainPage">
+
+    <StackLayout>
+
+        <StackLayout Orientation="Vertical" Spacing="10">
+            <Image 
+                Source="kid.png"
+                HeightRequest="50"
+                WidthRequest="50"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"/>
+            <Label
+                Text="Child"
+                HorizontalOptions="Center"
+                FontAttributes="Bold"
+                />
+            <BoxView
+                Color="Black"
+                WidthRequest="2000"
+                HeightRequest="5"/>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+            <StackLayout Orientation="Vertical">
+                <Label
+                    Text="     Name"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Margin="0,0,40,0"/>
+                <Entry
+                    x:Name="NameEntry"
+                    WidthRequest="100"
+                    Margin="0,0,40,0"
+                    />
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical">
+                <Label 
+                    Text="Surname"
+                    FontAttributes="Bold"
+                    FontSize="20"/>
+                <Entry
+                    x:Name="SurnameEntry"
+                    WidthRequest="100"
+                    />
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="Gender" HorizontalOptions="Center" Spacing="50" Margin="10">
+            <RadioButton
+                GroupName="Gender"
+                Content="Male"
+                Scale="1.5"
+                x:Name="MaleRadioButton"
+                />
+            <RadioButton
+                GroupName="Gender"
+                Content="Female"
+                Scale="1.5"
+                x:Name="FemaleRadioButton"/>
+        </StackLayout>
+        <BoxView
+            Color="Black"
+            WidthRequest="2000"
+            HeightRequest="5"/>
+        <Label Text="Team" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20" Margin="10"/>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="StudentTeam">
+                <RadioButton
+                    GroupName="StudentTeam"
+                    Margin="10"
+                    x:Name="BallRadioButton"
+                    />
+                <Image
+                    Source="ball.png"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    Scale="1.5"
+                    Margin="0,0,40,0"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="StudentTeam">
+                <RadioButton
+                    GroupName="StudentTeam"
+                    Margin="10"
+                    Scale="1.5"
+                    x:Name="BoatRadioButton"/>
+                <Image
+                    Source="boat.png"
+                    WidthRequest="55"
+                    HeightRequest="55"/>
+            </StackLayout>
+        </StackLayout>
+        
+
+        <StackLayout HeightRequest="60" Background="Green" Margin="15" WidthRequest="2000">
+            <BoxView
+                Color="Black"
+                WidthRequest="2000"
+                HeightRequest="5"/>
+            <Button
+                Text="Add"
+                x:Name="AddButton"
+                Clicked="AddButton_Clicked"
+                WidthRequest="80"
+                HeightRequest="40"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Margin="0,5,0,0"
+                />
+            <BoxView
+                Color="Black"
+                WidthRequest="2000"
+                HeightRequest="5"
+                Margin="5"/>
+        </StackLayout>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="100">
+                <Label Text="Name"/>
+                <Label Text="Gender"/>
+                <Label Text="Team"/>
+            </StackLayout>
+            
+            <ListView x:Name="ChildListView" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="100">
+                                <Label Text="{Binding FullName}"/>
+                                <Label Text="{Binding Gender}"/>
+                                <Label Text="{Binding Team}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+
+        <StackLayout HeightRequest="60" Background="Green" Margin="170" WidthRequest="2000" VerticalOptions="End">
+            <BoxView
+                Color="Black"
+                WidthRequest="2000"
+                HeightRequest="5"/>
+            <Button
+                Text="Show"
+                x:Name="ShowButton"
+                Clicked="ShowButton_Clicked"
+                WidthRequest="80"
+                HeightRequest="40"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Margin="0,5,0,0"
+                />
+            <BoxView
+                Color="Black"
+                WidthRequest="2000"
+                HeightRequest="5"
+                Margin="5"/>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
