@@ -6,7 +6,7 @@ public class Child
     public string LastName { get; set; }
     public string Gender { get; set; }
     public string Team { get; set; }
-    
+    public int ID { get; set; }
     public string FullName => $"{Name} {LastName}";
 
     public Child(string Name,string LastName, string Gender, string Team)

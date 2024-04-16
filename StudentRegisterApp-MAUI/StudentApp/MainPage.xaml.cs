@@ -6,8 +6,8 @@ public partial class MainPage : ContentPage
 {
     public List<Child> ChildList = new List<Child>();
 
-    private string gender;
-    private string team;
+    private string? gender;
+    private string? team;
 
     public MainPage()
     {
@@ -42,5 +42,11 @@ public partial class MainPage : ContentPage
     {
         ChildListView.ItemsSource = null;
         ChildListView.ItemsSource = ChildList;
+    }
+
+    private async void ChildListView_ItemTapped(object sender, ItemTappedEventArgs e)
+    {
+        var Child = e.Item as Child;
+        await DisplayAlert("Selected Student Information: ",$"Student Name: {Child.FullName}","OK");
     }
 }

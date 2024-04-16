@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudentApp.MainPage">
 
-    <StackLayout>
+    <StackLayout VerticalOptions="FillAndExpand">
 
         <StackLayout Orientation="Vertical" Spacing="10">
             <Image 
@@ -82,7 +82,7 @@
                     Scale="1.5"
                     Margin="0,0,40,0"/>
             </StackLayout>
-            
+
             <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="StudentTeam">
                 <RadioButton
                     GroupName="StudentTeam"
@@ -95,7 +95,7 @@
                     HeightRequest="55"/>
             </StackLayout>
         </StackLayout>
-        
+
 
         <StackLayout HeightRequest="60" Background="Green" Margin="15" WidthRequest="2000">
             <BoxView
@@ -105,6 +105,9 @@
             <Button
                 Text="Add"
                 x:Name="AddButton"
+                BackgroundColor="Silver"
+                TextColor="Black"
+                FontAttributes="Bold"
                 Clicked="AddButton_Clicked"
                 WidthRequest="80"
                 HeightRequest="40"
@@ -124,30 +127,31 @@
                 <Label Text="Gender"/>
                 <Label Text="Team"/>
             </StackLayout>
-            
-            <ListView x:Name="ChildListView" HasUnevenRows="True">
+
+            <ListView x:Name="ChildListView" HasUnevenRows="True" MaximumHeightRequest="205" ItemTapped="ChildListView_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="100">
-                                <Label Text="{Binding FullName}"/>
-                                <Label Text="{Binding Gender}"/>
-                                <Label Text="{Binding Team}"/>
+                                <Label Text="{Binding FullName}" HorizontalTextAlignment="Start"/>
+                                <Label Text="{Binding Gender}" HorizontalTextAlignment="Start"/>
+                                <Label Text="{Binding Team}" HorizontalTextAlignment="Start"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-
-
-        <StackLayout HeightRequest="60" Background="Green" Margin="170" WidthRequest="2000" VerticalOptions="End">
+        <StackLayout HeightRequest="60" Background="Green" WidthRequest="2000" VerticalOptions="EndAndExpand">
             <BoxView
                 Color="Black"
                 WidthRequest="2000"
                 HeightRequest="5"/>
             <Button
                 Text="Show"
+                TextColor="Black"
+                FontAttributes="Bold"
+                BackgroundColor="Silver"
                 x:Name="ShowButton"
                 Clicked="ShowButton_Clicked"
                 WidthRequest="80"
@@ -163,5 +167,4 @@
                 Margin="5"/>
         </StackLayout>
     </StackLayout>
-
 </ContentPage>
