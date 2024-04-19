@@ -15,6 +15,7 @@ public partial class MainPage : ContentPage
         ChildListView.ItemsSource = ChildList;
     }
 
+
     private void AddButton_Clicked(object sender, EventArgs e)
     {
         if (FemaleRadioButton.IsChecked)
